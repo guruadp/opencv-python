@@ -6,9 +6,16 @@ import cv2 as cv
 # cv.waitKey(2000)
 # Reading Videos
 
+def changeRes(width, height):
+    # only works for live video
+    capture.set(3, width)
+    capture.set(4, height)
+
+
 capture = cv.VideoCapture('Resources/Videos/dog.mp4')
 
 def rescaleFrame(frame, scale=0.75):
+    # works with Images, videos and live videos
     width = int(frame.shape[1] * scale)
     height = int(frame.shape[0] * scale)
 
